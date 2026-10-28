@@ -61,9 +61,15 @@
     }
     body.is-embedded .app-container {
       max-width: 100%;
-      padding: 1rem 0.75rem 2rem;
+      padding: 0.75rem 0.5rem 1rem;
+    }
+    body.is-embedded .main-footer {
+      display: none !important;
     }
     body.hide-header .main-header {
+      display: none !important;
+    }
+    body.hide-footer .main-footer {
       display: none !important;
     }
 
@@ -1169,6 +1175,7 @@
       const urlParams = new URLSearchParams(window.location.search);
       const isEmbedParam = urlParams.get('embed') === '1' || urlParams.get('embed') === 'true';
       const isHideHeader = urlParams.get('hide_header') === '1' || urlParams.get('hide_header') === 'true';
+      const isHideFooter = urlParams.get('hide_footer') === '1' || urlParams.get('hide_footer') === 'true';
       const isInIframe = window.self !== window.top;
       
       if (isEmbedParam || isInIframe) {
@@ -1177,6 +1184,10 @@
 
       if (isHideHeader) {
         document.body.classList.add('hide-header');
+      }
+
+      if (isHideFooter) {
+        document.body.classList.add('hide-footer');
       }
 
       // Update iframe sample URL with current location or fallback
