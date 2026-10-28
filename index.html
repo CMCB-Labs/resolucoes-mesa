@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resoluções de Mesa - Câmara Municipal de Coronel Barros / RS</title>
+  <meta name="description" content="Consulta pública oficial e transparência das Resoluções da Mesa Diretora da Câmara Municipal de Coronel Barros - RS. Dados sincronizados via SAPL.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
+  
+  <style>
+    :root {
+      --primary: #0f3057;
+      --primary-dark: #071c35;
+      --primary-light: #1e4f8a;
+      --accent: #c48b28;
+      --accent-hover: #a8721c;
+      --accent-soft: #fcf6eb;
+      --success: #10b981;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --text-light: #94a3b8;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --border-focus: #3b82f6;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+      --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      padding: 0;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Embed Mode Overrides */
+    body.is-embedded {
+      background-color: transparent;
+    }
+    body.is-embedded .main-header {
+      padding: 1.25rem 1rem;
+      border-radius: 0;
+    }
+    body.is-embedded .app-container {
+      max-width: 100%;
+      padding: 1rem 0.75rem 2rem;
+    }
+    body.hide-header .main-header {
+      display: none !important;
+    }
+
+    /* Header */
+    .main-header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 65%, var(--primary-light) 100%);
+      color: #ffffff;
+      padding: 2.25rem 1.5rem 2rem;
+      position: relative;
+      border-bottom: 3px solid var(--accent);
+      box-shadow: var(--shadow-md);
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+
+    .header-title-box {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .seal-icon {
+      width: 54px;
+      height: 54px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      backdrop-filter: blur(4px);
+    }
+
+    .seal-icon svg {
+      width: 32px;
+      height: 32px;
+      fill: #ffffff;
+    }
+
+    .header-title-box h1 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .header-title-box .badge-entity {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #e2e8f0;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(16, 185, 129, 0.18);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #a7f3d0;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--success);
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    .btn-portal {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.45rem 0.9rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: var(--transition);
+    }
+
+    .btn-portal:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-1px);
+    }
+
+    /* Main Container */
+    .app-container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 1.75rem 1.25rem 3rem;
+      flex: 1;
+    }
+
+    /* Filter Card */
+    .filter-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1.5rem;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .search-input-wrapper {
+      position: relative;
+      flex: 1;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+      width: 18px;
+      height: 18px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.75rem 2.5rem 0.75rem 2.75rem;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
+      font-size: 0.95rem;
+      color: var(--text-main);
+      background-color: #ffffff;
+      transition: var(--transition);
+      outline: none;
+    }
+
+    .search-input:focus {
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(30, 79, 138, 0.15);
+    }
+
+    .search-clear-btn {
+      position: absolute;
+      right: 0.85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 50%;
+      display: none;
+    }
+
+    .search-clear-btn:hover {
+      color: var(--text-main);
+      background-color: var(--border);
+    }
+
+    /* Years Selector Pills */
+    .years-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      scrollbar-width: thin;
+    }
+
+    .years-bar::-webkit-scrollbar {
+      height: 4px;
+    }
+    .years-bar::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 4px;
+    }
+
+    .year-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-right: 0.25rem;
+      white-space: nowrap;
+    }
+
+    .year-pill {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.84rem;
+      font-weight: 600;
+      padding: 0.4rem 0.85rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .year-pill:hover {
+      background: #e2e8f0;
+      color: var(--text-main);
+    }
+
+    .year-pill.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      box-shadow: 0 2px 4px rgba(15, 48, 87, 0.25);
+    }
+
+    .year-pill .pill-count {
+      font-size: 0.72rem;
+      padding: 0.1rem 0.45rem;
+      border-radius: 9999px;
+      background: rgba(0, 0, 0, 0.08);
+    }
+
+    .year-pill.active .pill-count {
+      background: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+    }
+
+    /* Controls Bar: Sort, View, Per Page */
+    .controls-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .controls-left, .controls-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .control-group {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .control-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .select-custom {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 0.45rem 2rem 0.45rem 0.75rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.84rem;
+      font-weight: 500;
+      outline: none;
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2364748b%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.6rem center;
+      transition: var(--transition);
+    }
+
+    .select-custom:focus {
+      border-color: var(--primary-light);
+    }
+
+    /* View Switcher */
+    .view-toggle {
+      display: inline-flex;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 2px;
+    }
+
+    .view-btn {
+      background: none;
+      border: none;
+      padding: 0.35rem 0.65rem;
+      border-radius: 4px;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .view-btn.active {
+      background: #ffffff;
+      color: var(--primary);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* Status Bar */
+    .status-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .results-count {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .sync-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+    }
+
+    .btn-refresh {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--primary);
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background-color: var(--surface);
+      transition: var(--transition);
+    }
+
+    .btn-refresh:hover {
+      background-color: #f1f5f9;
+      border-color: var(--border-focus);
+    }
+
+    .btn-refresh.spinning svg {
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Card View Layout */
+    .resolutions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 640px) {
+      .resolutions-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .res-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .res-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .badge-number {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1e40af;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.3rem 0.65rem;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .badge-date {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--bg);
+      padding: 0.25rem 0.55rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+    }
+
+    .card-body {
+      margin-bottom: 1.25rem;
+      flex: 1;
+    }
+
+    .card-ementa {
+      font-size: 0.94rem;
+      color: var(--text-main);
+      line-height: 1.55;
+      text-align: justify;
+    }
+
+    .card-footer {
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    /* Buttons */
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1px solid transparent;
+    }
+
+    .btn-file-pdf {
+      background-color: #fee2e2;
+      color: #991b1b;
+      border-color: #fca5a5;
+    }
+    .btn-file-pdf:hover {
+      background-color: #fecaca;
+      color: #7f1d1d;
+    }
+
+    .btn-file-doc {
+      background-color: #e0f2fe;
+      color: #0369a1;
+      border-color: #bae6fd;
+    }
+    .btn-file-doc:hover {
+      background-color: #bae6fd;
+      color: #075985;
+    }
+
+    .btn-sapl {
+      background-color: var(--bg);
+      color: var(--text-main);
+      border-color: var(--border);
+    }
+    .btn-sapl:hover {
+      background-color: #e2e8f0;
+      color: var(--primary);
+    }
+
+    .btn-copy {
+      background: none;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      padding: 0.45rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn-copy:hover {
+      color: var(--primary);
+      background-color: var(--bg);
+      border-color: var(--border);
+    }
+
+    /* Table View Layout */
+    .table-wrapper {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .resolutions-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    .resolutions-table th {
+      background: #f1f5f9;
+      color: var(--text-muted);
+      font-weight: 700;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.85rem 1rem;
+      border-bottom: 2px solid var(--border);
+      white-space: nowrap;
+    }
+
+    .resolutions-table td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    .resolutions-table tr:hover td {
+      background-color: #f8fafc;
+    }
+
+    .table-num {
+      font-weight: 700;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+
+    .table-date {
+      white-space: nowrap;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .table-ementa {
+      color: var(--text-main);
+      line-height: 1.5;
+      min-width: 280px;
+    }
+
+    .table-actions {
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    /* Pagination */
+    .pagination-bar {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+    }
+
+    .page-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      min-width: 38px;
+      height: 38px;
+      padding: 0 0.5rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .page-btn:hover:not(:disabled) {
+      background-color: #f1f5f9;
+      border-color: var(--primary-light);
+    }
+
+    .page-btn.active {
+      background-color: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      box-shadow: 0 2px 4px rgba(15, 48, 87, 0.2);
+    }
+
+    .page-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* Empty & Error States */
+    .empty-state {
+      text-align: center;
+      padding: 4rem 1.5rem;
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-lg);
+    }
+
+    .empty-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      opacity: 0.8;
+    }
+
+    .empty-state h3 {
+      font-size: 1.2rem;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .empty-state p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      max-width: 420px;
+      margin: 0 auto 1.5rem;
+    }
+
+    /* Highlight Search */
+    mark.highlight {
+      background-color: #fef08a;
+      color: #854d0e;
+      padding: 0 2px;
+      border-radius: 2px;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: var(--primary-dark);
+      color: #ffffff;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      font-size: 0.88rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 9999;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Footer */
+    .main-footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: auto;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-links a, .btn-embed-help {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.82rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .footer-links a:hover, .btn-embed-help:hover {
+      text-decoration: underline;
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(3px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-dialog {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      max-width: 620px;
+      width: 100%;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      animation: modalIn 0.25s ease-out;
+    }
+
+    @keyframes modalIn {
+      from { transform: scale(0.96); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-header {
+      background: var(--bg);
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-header h3 {
+      font-size: 1.1rem;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 4px;
+      line-height: 1;
+    }
+
+    .modal-body {
+      padding: 1.25rem;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    .code-box {
+      background: #1e293b;
+      color: #f8fafc;
+      padding: 0.85rem;
+      border-radius: var(--radius-md);
+      font-family: monospace;
+      font-size: 0.82rem;
+      overflow-x: auto;
+      margin: 0.75rem 0 1rem;
+      position: relative;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Main Header -->
+  <header class="main-header" id="headerSection">
+    <div class="header-content">
+      <div class="header-title-box">
+        <div class="seal-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+          </svg>
+        </div>
+        <div>
+          <div class="badge-entity">Poder Legislativo Municipal</div>
+          <h1>Câmara Municipal de Coronel Barros</h1>
+          <div style="font-size: 0.95rem; color: #cbd5e1; margin-top: 0.2rem; font-weight: 500;">
+            Resoluções da Mesa Diretora
+          </div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="live-badge" title="Conexão direta com a API pública do SAPL">
+          <span class="pulse-dot"></span>
+          <span>SAPL Oficial Conectado</span>
+        </div>
+        <a href="https://sapl.coronelbarros.rs.leg.br" target="_blank" rel="noopener noreferrer" class="btn-portal">
+          <span>Portal SAPL</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- App Main Content -->
+  <main class="app-container">
+
+    <!-- Filters & Search Toolbar -->
+    <section class="filter-card" aria-label="Filtros e Pesquisa">
+      <div class="search-row">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input 
+            type="text" 
+            id="searchInput" 
+            class="search-input" 
+            placeholder="Buscar por termo na ementa, número (ex: 10) ou ano (ex: 2026)..."
+            autocomplete="off"
+            spellcheck="false"
+          >
+          <button id="clearSearchBtn" class="search-clear-btn" title="Limpar busca" aria-label="Limpar busca">✕</button>
+        </div>
+      </div>
+
+      <!-- Year Selector Bar -->
+      <div class="years-bar" id="yearsBar">
+        <span class="year-label">Filtrar Ano:</span>
+        <button class="year-pill active" data-year="all">
+          Todos <span class="pill-count" id="countAll">0</span>
+        </button>
+        <!-- Dynamic Years Generated by JS -->
+      </div>
+
+      <!-- Controls: Ordering, Items per page, View toggle -->
+      <div class="controls-bar">
+        <div class="controls-left">
+          <div class="control-group">
+            <label for="sortSelect" class="control-label">Ordenar:</label>
+            <select id="sortSelect" class="select-custom">
+              <option value="date-desc">Mais recentes primeiro</option>
+              <option value="date-asc">Mais antigas primeiro</option>
+              <option value="num-desc">Número (Maior → Menor)</option>
+              <option value="num-asc">Número (Menor → Maior)</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label for="pageSizeSelect" class="control-label">Exibir:</label>
+            <select id="pageSizeSelect" class="select-custom">
+              <option value="12">12 por página</option>
+              <option value="24">24 por página</option>
+              <option value="48">48 por página</option>
+              <option value="all">Todas</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="controls-right">
+          <div class="view-toggle" role="group" aria-label="Modo de visualização">
+            <button id="viewGridBtn" class="view-btn active" title="Visualização em cartões">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+              <span>Grade</span>
+            </button>
+            <button id="viewTableBtn" class="view-btn" title="Visualização em lista/tabela">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+              <span>Tabela</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Status & Results Count Bar -->
+    <div class="status-bar">
+      <div>
+        <span class="results-count" id="resultsCount">Carregando resoluções...</span>
+      </div>
+      <div class="sync-meta">
+        <span id="lastUpdatedText">Atualizado agora</span>
+        <button id="refreshBtn" class="btn-refresh" title="Recarregar dados do SAPL">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+          <span>Atualizar</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Container for dynamic listing -->
+    <section id="resultsArea" aria-live="polite">
+      <!-- Cards View -->
+      <div id="cardsContainer" class="resolutions-grid"></div>
+
+      <!-- Table View -->
+      <div id="tableWrapper" class="table-wrapper" style="display: none;">
+        <table class="resolutions-table">
+          <thead>
+            <tr>
+              <th>Resolução</th>
+              <th>Data</th>
+              <th>Ementa / Assunto</th>
+              <th style="text-align: right;">Documento & SAPL</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+
+      <!-- Empty State -->
+      <div id="emptyState" class="empty-state" style="display: none;">
+        <div class="empty-icon">📂</div>
+        <h3>Nenhuma resolução encontrada</h3>
+        <p>Não encontramos resoluções correspondentes aos critérios ou ano selecionado.</p>
+        <button id="resetFiltersBtn" class="year-pill active" style="padding: 0.5rem 1.25rem;">
+          Limpar Filtros e Busca
+        </button>
+      </div>
+    </section>
+
+    <!-- Pagination -->
+    <nav class="pagination-bar" id="paginationBar" aria-label="Navegação entre páginas"></nav>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div>
+        <strong>Câmara Municipal de Coronel Barros - RS</strong> | Transparência Legislativa
+      </div>
+      <div class="footer-links">
+        <button id="openEmbedHelpBtn" class="btn-embed-help">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          <span>Como Incorporar (Embed)</span>
+        </button>
+        <span>•</span>
+        <a href="https://sapl.coronelbarros.rs.leg.br/api/schema/swagger-ui/" target="_blank" rel="noopener noreferrer">
+          Documentação Swagger API
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal for Embed Code -->
+  <div id="embedModal" class="modal-backdrop">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          <span>Código para incorporar no site da Câmara</span>
+        </h3>
+        <button id="closeModalBtn" class="modal-close" aria-label="Fechar">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Copie e cole a tag <code>&lt;iframe&gt;</code> abaixo no gerenciador de conteúdo ou HTML do site da Câmara:</p>
+        <div class="code-box" id="iframeCodeBox">&lt;iframe 
+  src="https://cmcb-labs.github.io/resolucoes-mesa/?embed=1" 
+  width="100%" 
+  height="750" 
+  style="border: none; min-height: 600px; width: 100%;" 
+  title="Resoluções de Mesa - Câmara de Coronel Barros"&gt;
+&lt;/iframe&gt;</div>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+          <strong>Opções adicionais de URL:</strong>
+        </p>
+        <ul style="font-size: 0.84rem; color: var(--text-muted); margin-left: 1.25rem; line-height: 1.6;">
+          <li><code>?embed=1</code>: Otimiza as margens e fundo para exibição em iframe.</li>
+          <li><code>?hide_header=1</code>: Oculta o cabeçalho superior (ideal caso o site da Câmara já tenha título próprio).</li>
+        </ul>
+        <button id="copyIframeBtn" class="year-pill active" style="margin-top: 1rem; width: 100%; justify-content: center;">
+          Copiar Código do Iframe
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast" role="status" aria-live="polite">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <span id="toastMsg">Link copiado com sucesso!</span>
+  </div>
+
+  <!-- Logic & Data Script -->
+  <script>
+    // Embedded snapshot data for immediate zero-latency rendering & offline resilience
+    const INITIAL_DATA = [{"id": 24, "numero": "10", "ano": 2026, "data": "2026-04-16", "data_publicacao": "2026-04-16", "ementa": "Dispõe sobre ponto facultativo no âmbito da Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2026/24/resolucao_de_mesa_no_10.2026_-_ponto_facultativo_20_de_abril.docx", "link_detail_backend": "/norma/24"}, {"id": 23, "numero": "9", "ano": 2026, "data": "2026-03-31", "data_publicacao": "2026-03-31", "ementa": "Dispõe sobre a antecipação da reunião da Comissão de Constituição, Justiça, Cidadania e Desenvolvimento Social.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2026/23/resolucao_de_mesa_no_09.2026.pdf", "link_detail_backend": "/norma/23"}, {"id": 22, "numero": "8", "ano": 2026, "data": "2026-03-31", "data_publicacao": "2026-03-31", "ementa": "Estabelece turno único na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2026/22/resolucao_de_mesa_no_08.2026.pdf", "link_detail_backend": "/norma/22"}, {"id": 21, "numero": "7", "ano": 2026, "data": "2026-03-30", "data_publicacao": "2026-03-31", "ementa": "Abre crédito adicional suplementar na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2026/21/resolucao_de_mesa_no_07.2026.pdf", "link_detail_backend": "/norma/21"}, {"id": 20, "numero": "6", "ano": 2026, "data": "2026-03-12", "data_publicacao": "2026-03-13", "ementa": "Dispõe sobre o reconhecimento de despesa realizada no interesse público e autoriza indenização.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2026/20/resolucao_de_mesa_no_06.2026.pdf", "link_detail_backend": "/norma/20"}, {"id": 19, "numero": "5", "ano": 2026, "data": "2026-02-11", "data_publicacao": "2026-02-11", "ementa": "Dispõe sobre ponto facultativo no âmbito da Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2026/19/resolucao_de_mesa_no_05.2026.pdf", "link_detail_backend": "/norma/19"}, {"id": 18, "numero": "4", "ano": 2026, "data": "2026-02-11", "data_publicacao": "2026-02-11", "ementa": "Dispõe sobre ponto facultativo no âmbito da Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2026/18/resolucao_de_mesa_no_04.2026.pdf", "link_detail_backend": "/norma/18"}, {"id": 17, "numero": "3", "ano": 2026, "data": "2026-02-11", "data_publicacao": "2026-02-11", "ementa": "Dispõe sobre o encerramento antecipado do turno único no âmbito da Câmara Municipal de Coronel Barros e dá outras providências.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2026/17/resolucao_de_mesa_no_03.2026.pdf", "link_detail_backend": "/norma/17"}, {"id": 16, "numero": "2", "ano": 2026, "data": "2026-01-15", "data_publicacao": "2026-01-15", "ementa": "Fixa o valor das diárias de servidores públicos e agentes políticos do Legislativo Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2026/16/resolucao_de_mesa_no_02.2026.pdf", "link_detail_backend": "/norma/16"}, {"id": 15, "numero": "1", "ano": 2026, "data": "2026-01-05", "data_publicacao": "2026-01-05", "ementa": "Estabelece turno único na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2026/15/resolucao_de_mesa_no_01.2026.pdf", "link_detail_backend": "/norma/15"}, {"id": 73, "numero": "21", "ano": 2025, "data": "2025-12-29", "data_publicacao": "", "ementa": "Abre crédito adicional suplementar na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/73/resolucao_de_mesa_no_21.2025.pdf", "link_detail_backend": "/norma/73"}, {"id": 72, "numero": "20", "ano": 2025, "data": "2025-12-24", "data_publicacao": "", "ementa": "Estabelece ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/72/resolucao_de_mesa_no_20.2025.pdf", "link_detail_backend": "/norma/72"}, {"id": 71, "numero": "19", "ano": 2025, "data": "2025-11-19", "data_publicacao": "", "ementa": "Estabelece ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/71/resolucao_de_mesa_no_19.2025.pdf", "link_detail_backend": "/norma/71"}, {"id": 70, "numero": "18", "ano": 2025, "data": "2025-11-10", "data_publicacao": "", "ementa": "Estabelece turno único na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/70/resolucao_de_mesa_no_18.2025-_estabelece_turno_unico.pdf", "link_detail_backend": "/norma/70"}, {"id": 69, "numero": "17", "ano": 2025, "data": "2025-10-22", "data_publicacao": "", "ementa": "Abre crédito adicional suplementar na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/69/resolucao_de_mesa_no_17.2025-_credito_suplementar.pdf", "link_detail_backend": "/norma/69"}, {"id": 68, "numero": "16", "ano": 2025, "data": "2025-10-17", "data_publicacao": "", "ementa": "Estabelece ponto facultativo e transfere data de Sessão Ordinária na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/68/resolucao_de_mesa_no_16.2025-_ponto_facultativo.pdf", "link_detail_backend": "/norma/68"}, {"id": 67, "numero": "15", "ano": 2025, "data": "2025-10-16", "data_publicacao": "", "ementa": "Abre crédito adicional suplementar na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/67/resolucao_de_mesa_no_15.2025-_credito_suplementar.pdf", "link_detail_backend": "/norma/67"}, {"id": 66, "numero": "14", "ano": 2025, "data": "2025-10-01", "data_publicacao": "", "ementa": "Estabelece expediente interno na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/66/resolucao_de_mesa_no_14.2025_-_expediente_interno.pdf", "link_detail_backend": "/norma/66"}, {"id": 65, "numero": "13", "ano": 2025, "data": "2025-06-30", "data_publicacao": "", "ementa": "Fixa o valor das Diárias de servidores públicos e agentes políticos do Legislativo Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/65/resolucao_de_mesa_no_13.2025.pdf", "link_detail_backend": "/norma/65"}, {"id": 64, "numero": "12", "ano": 2025, "data": "2025-06-18", "data_publicacao": "", "ementa": "Estabelece ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/64/resolucao_de_mesa_no_12.2025_-_ponto_facultativo_20.06.pdf", "link_detail_backend": "/norma/64"}, {"id": 63, "numero": "11", "ano": 2025, "data": "2025-04-30", "data_publicacao": "", "ementa": "Estabelece ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/63/resolucao_de_mesa_no_11.2025_-_ponto_facultativo_02.05.pdf", "link_detail_backend": "/norma/63"}, {"id": 62, "numero": "10", "ano": 2025, "data": "2025-04-16", "data_publicacao": "", "ementa": "Estabelece ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/62/resolucao_de_mesa_no_10.2025_-_ponto_facultativo_17.04.pdf", "link_detail_backend": "/norma/62"}, {"id": 61, "numero": "9", "ano": 2025, "data": "2025-03-19", "data_publicacao": "", "ementa": "Estabelece ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/61/resolucao_de_mesa_no_09.2025_-_ponto_facultativo_aniversario_municipio.docx", "link_detail_backend": "/norma/61"}, {"id": 60, "numero": "8", "ano": 2025, "data": "2025-02-25", "data_publicacao": "", "ementa": "Estabelece turno único na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/60/resolucao_de_mesa_no_08.2025_-_turno_unico.pdf", "link_detail_backend": "/norma/60"}, {"id": 59, "numero": "7", "ano": 2025, "data": "2025-02-25", "data_publicacao": "", "ementa": "Dispõe sobre a transferência da data da Sessão Ordinária da Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/59/resolucao_de_mesa_no_07.2025_-_transfere_o_dia_da_sessao.pdf", "link_detail_backend": "/norma/59"}, {"id": 58, "numero": "6", "ano": 2025, "data": "2025-02-24", "data_publicacao": "2025-02-24", "ementa": "Estabelece ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/58/resolucao_de_mesa_no_06.2025_-_ponto_facultativo_carnaval.pdf", "link_detail_backend": "/norma/58"}, {"id": 57, "numero": "5", "ano": 2025, "data": "2025-02-12", "data_publicacao": "2025-02-12", "ementa": "Altera resolução de mesa nº 01, de 02 de janeiro de 2025.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/57/resolucao_de_mesa_no_05.2025_-_retira_turno.docx", "link_detail_backend": "/norma/57"}, {"id": 56, "numero": "4", "ano": 2025, "data": "2025-01-30", "data_publicacao": "2025-01-30", "ementa": "Abre crédito adicional suplementar na Câmara Municipal de Coronel Barros.", "texto_integral": "", "link_detail_backend": "/norma/56"}, {"id": 55, "numero": "3", "ano": 2025, "data": "2025-01-20", "data_publicacao": "2025-01-20", "ementa": "Fixa o valor das diárias de servidores públicos e agentes políticos do Legislativo Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/55/resolucao_de_mesa_no_03.2025_-_fixa_valor_das_diarias.pdf", "link_detail_backend": "/norma/55"}, {"id": 54, "numero": "2", "ano": 2025, "data": "2025-01-20", "data_publicacao": "2025-01-20", "ementa": "RESOLUÇÃO DE MESA INEXISTENTE.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/54/resolucao_de_mesa_no_02.2025_-_nao_foi_feita.docx", "link_detail_backend": "/norma/54"}, {"id": 53, "numero": "1", "ano": 2025, "data": "2025-01-02", "data_publicacao": "2025-01-02", "ementa": "Estabelece turno único na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/53/resolucao_de_mesa_no_01.2025_-_turno_unico.docx", "link_detail_backend": "/norma/53"}, {"id": 94, "numero": "21", "ano": 2024, "data": "2024-12-30", "data_publicacao": "", "ementa": "Dispõe sobre turno único.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/94/resolucao_de_mesa_no_21-_troca_de_turno.docx", "link_detail_backend": "/norma/94"}, {"id": 93, "numero": "20", "ano": 2024, "data": "2024-12-23", "data_publicacao": "", "ementa": "Estabelece ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/93/resolucao_de_mesa_no_20.2024.pdf", "link_detail_backend": "/norma/93"}, {"id": 92, "numero": "19", "ano": 2024, "data": "2024-12-23", "data_publicacao": "", "ementa": "Dispõe sobre turno único.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/92/resolucao_de_mesa_no_19.2024.pdf", "link_detail_backend": "/norma/92"}, {"id": 91, "numero": "18", "ano": 2024, "data": "2024-12-23", "data_publicacao": "", "ementa": "Resolve que não haverá reunião de Comissão devido ausência de matéria a ser apreciada.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/91/resolucao_de_mesa_no_18.2024.pdf", "link_detail_backend": "/norma/91"}, {"id": 90, "numero": "17", "ano": 2024, "data": "2024-12-13", "data_publicacao": "", "ementa": "Resolve que não haverá reunião de Comissão devido ausência de matéria a ser apreciada.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/90/resolucao_de_mesa_no_17.2024.pdf", "link_detail_backend": "/norma/90"}, {"id": 89, "numero": "16", "ano": 2024, "data": "2024-11-29", "data_publicacao": "", "ementa": "Resolve que não haverá reunião de Comissão devido ausência de matéria a ser apreciada.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/89/resolucao_de_mesa_no_16.2024.pdf", "link_detail_backend": "/norma/89"}, {"id": 88, "numero": "15", "ano": 2024, "data": "2024-11-19", "data_publicacao": "", "ementa": "Abre crédito adicional suplementar na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/88/resolucao_de_mesa_no_15.2024.pdf", "link_detail_backend": "/norma/88"}, {"id": 87, "numero": "14", "ano": 2024, "data": "2024-11-14", "data_publicacao": "", "ementa": "Estabelece turno único na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/87/resolucao_de_mesa_no_14.2024.pdf", "link_detail_backend": "/norma/87"}, {"id": 86, "numero": "13", "ano": 2024, "data": "2024-11-07", "data_publicacao": "", "ementa": "Altera resolução de mesa nº 12, de 29 de outubro de 2024.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/86/resolucao_de_mesa_no_13.2024.pdf", "link_detail_backend": "/norma/86"}, {"id": 85, "numero": "12", "ano": 2024, "data": "2024-10-30", "data_publicacao": "", "ementa": "Estabelece turno único na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/85/resolucao_de_mesa_no_12.2024.pdf", "link_detail_backend": "/norma/85"}, {"id": 84, "numero": "11", "ano": 2024, "data": "2024-10-24", "data_publicacao": "", "ementa": "Estabelece turno único na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/84/resolucao_de_mesa_no_11.2024_-_turno_unico_dia_do_servidor_publico.pdf", "link_detail_backend": "/norma/84"}, {"id": 82, "numero": "9", "ano": 2024, "data": "2024-10-23", "data_publicacao": "", "ementa": "Estabelece ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/82/resolucao_de_mesa_no_09.2024.pdf", "link_detail_backend": "/norma/82"}, {"id": 83, "numero": "10", "ano": 2024, "data": "2024-10-23", "data_publicacao": "", "ementa": "Transfere a Sessão Ordinária do dia 28 de outubro de 2024 para o dia 29 de outubro de 2024.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/83/resolucao_de_mesa_no_10.2024.pdf", "link_detail_backend": "/norma/83"}, {"id": 81, "numero": "8", "ano": 2024, "data": "2024-08-09", "data_publicacao": "", "ementa": "Resolve que não haverá reunião de Comissão devido ausência de matéria a ser apreciada.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/81/resolucao_de_mesa_no_08.2024.pdf", "link_detail_backend": "/norma/81"}, {"id": 80, "numero": "7", "ano": 2024, "data": "2024-07-22", "data_publicacao": "", "ementa": "Resolve que não haverá reunião de Comissão devido ausência de matéria a ser apreciada.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/80/resolucao_de_mesa_no_07.2024.pdf", "link_detail_backend": "/norma/80"}, {"id": 79, "numero": "6", "ano": 2024, "data": "2024-07-02", "data_publicacao": "", "ementa": "Abre crédito adicional suplementar na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/79/resolucao_de_mesa_no_06.2024.pdf", "link_detail_backend": "/norma/79"}, {"id": 78, "numero": "5", "ano": 2024, "data": "2024-05-29", "data_publicacao": "", "ementa": "Estabelece ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/78/resolucao_de_mesa_no_05.2024_-_ponto_facultativo_corpus_christi.docx", "link_detail_backend": "/norma/78"}, {"id": 77, "numero": "4", "ano": 2024, "data": "2024-03-27", "data_publicacao": "", "ementa": "Estabelece turno único na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/77/resolucao_de_mesa_no_04.2024_-_turno_unico.docx", "link_detail_backend": "/norma/77"}, {"id": 76, "numero": "3", "ano": 2024, "data": "2024-03-06", "data_publicacao": "", "ementa": "Fixa o valor das diárias de servidores públicos e agentes políticos do Legislativo Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/76/resolucao_de_mesa_no_03.2024_-_diarias.docx", "link_detail_backend": "/norma/76"}, {"id": 75, "numero": "2", "ano": 2024, "data": "2024-02-08", "data_publicacao": "", "ementa": "Estabelece ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/75/resolucao_de_mesa_no_02.2024_-_ponto_facultativo_carnaval.docx", "link_detail_backend": "/norma/75"}, {"id": 95, "numero": "1-A", "ano": 2024, "data": "2024-01-31", "data_publicacao": "", "ementa": "Estabelece turno único na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/95/resolucao_no01a.2024.pdf", "link_detail_backend": "/norma/95"}, {"id": 74, "numero": "1", "ano": 2024, "data": "2024-01-01", "data_publicacao": "", "ementa": "Estabelece ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/74/resolucao_de_mesa_no_01.2024.pdf", "link_detail_backend": "/norma/74"}, {"id": 98, "numero": "6", "ano": 2023, "data": "2023-05-08", "data_publicacao": "", "ementa": "Abre crédito adicional suplementar na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2023/98/resolucao_de_mesa_no_06_-_credito_adicional_suplementar.docx", "link_detail_backend": "/norma/98"}, {"id": 97, "numero": "4", "ano": 2023, "data": "2023-04-05", "data_publicacao": "", "ementa": "Adota turno único na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2023/97/resolucao_de_mesa_no_04.pdf", "link_detail_backend": "/norma/97"}, {"id": 96, "numero": "3", "ano": 2023, "data": "2023-02-17", "data_publicacao": "", "ementa": "Adota ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2023/96/resolucao_de_mesa_no_03_-_ponto_facultativo_carnaval.docx", "link_detail_backend": "/norma/96"}];
+
+    const API_ENDPOINT = 'https://sapl.coronelbarros.rs.leg.br/api/norma/normajuridica/?tipo=8&page_size=100&format=json';
+    const SAPL_BASE_URL = 'https://sapl.coronelbarros.rs.leg.br';
+
+    // State
+    let allResolutions = [...INITIAL_DATA];
+    let filteredResolutions = [];
+    let currentYear = 'all';
+    let searchQuery = '';
+    let currentSort = 'date-desc';
+    let currentPage = 1;
+    let pageSize = 12;
+    let currentView = 'grid'; // 'grid' or 'table'
+
+    // DOM Elements
+    const searchInput = document.getElementById('searchInput');
+    const clearSearchBtn = document.getElementById('clearSearchBtn');
+    const yearsBar = document.getElementById('yearsBar');
+    const countAllSpan = document.getElementById('countAll');
+    const sortSelect = document.getElementById('sortSelect');
+    const pageSizeSelect = document.getElementById('pageSizeSelect');
+    const viewGridBtn = document.getElementById('viewGridBtn');
+    const viewTableBtn = document.getElementById('viewTableBtn');
+    const resultsCount = document.getElementById('resultsCount');
+    const lastUpdatedText = document.getElementById('lastUpdatedText');
+    const refreshBtn = document.getElementById('refreshBtn');
+    const cardsContainer = document.getElementById('cardsContainer');
+    const tableWrapper = document.getElementById('tableWrapper');
+    const tableBody = document.getElementById('tableBody');
+    const emptyState = document.getElementById('emptyState');
+    const resetFiltersBtn = document.getElementById('resetFiltersBtn');
+    const paginationBar = document.getElementById('paginationBar');
+    const toast = document.getElementById('toast');
+    const toastMsg = document.getElementById('toastMsg');
+    const embedModal = document.getElementById('embedModal');
+    const openEmbedHelpBtn = document.getElementById('openEmbedHelpBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const copyIframeBtn = document.getElementById('copyIframeBtn');
+    const iframeCodeBox = document.getElementById('iframeCodeBox');
+
+    // Detect iframe or embed query parameter
+    function checkEmbedMode() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const isEmbedParam = urlParams.get('embed') === '1' || urlParams.get('embed') === 'true';
+      const isHideHeader = urlParams.get('hide_header') === '1' || urlParams.get('hide_header') === 'true';
+      const isInIframe = window.self !== window.top;
+      
+      if (isEmbedParam || isInIframe) {
+        document.body.classList.add('is-embedded');
+      }
+
+      if (isHideHeader) {
+        document.body.classList.add('hide-header');
+      }
+
+      // Update iframe sample URL with current location or fallback
+      const currentUrl = (window.location.protocol.startsWith('http') && !window.location.hostname.includes('localhost') && !window.location.hostname.includes('127.0.0.1'))
+        ? window.location.href.split('?')[0]
+        : 'https://cmcb-labs.github.io/resolucoes-mesa/';
+      iframeCodeBox.textContent = `<iframe \n  src="${currentUrl}?embed=1" \n  width="100%" \n  height="750" \n  style="border: none; min-height: 600px; width: 100%;" \n  title="Resoluções de Mesa - Câmara de Coronel Barros">\n</iframe>`;
+    }
+
+    // String normalization for accent-insensitive search
+    function normalizeStr(str) {
+      return (str || '')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .trim();
+    }
+
+    // Date formatting (DD/MM/YYYY) without timezone shifts
+    function formatDateBR(dateStr) {
+      if (!dateStr) return 'Não informada';
+      const parts = dateStr.split('-');
+      if (parts.length === 3) {
+        return `${parts[2]}/${parts[1]}/${parts[0]}`;
+      }
+      return dateStr;
+    }
+
+    // Ensure secure URL
+    function toHttps(url) {
+      if (!url) return '';
+      return url.replace(/^http:\/\//i, 'https://');
+    }
+
+    // Show temporary toast message
+    function showToast(message) {
+      toastMsg.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2600);
+    }
+
+    // Send height to parent if in iframe
+    function notifyParentResize() {
+      if (window.self !== window.top) {
+        const height = document.documentElement.scrollHeight;
+        window.parent.postMessage({ type: 'sapl-resize', height: height }, '*');
+      }
+    }
+
+    // Fetch dynamic updates from SAPL API
+    async function fetchFromAPI() {
+      refreshBtn.classList.add('spinning');
+      try {
+        let fetchedItems = [];
+        let nextUrl = API_ENDPOINT;
+
+        while (nextUrl) {
+          nextUrl = toHttps(nextUrl);
+          const response = await fetch(nextUrl, { cache: 'no-cache' });
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          const data = await response.json();
+
+          if (data.results && Array.isArray(data.results)) {
+            data.results.forEach(item => {
+              fetchedItems.push({
+                id: item.id,
+                numero: String(item.numero || ''),
+                ano: parseInt(item.ano, 10) || 0,
+                data: item.data || '',
+                data_publicacao: item.data_publicacao || '',
+                ementa: (item.ementa || '').trim(),
+                texto_integral: toHttps(item.texto_integral || ''),
+                link_detail_backend: item.link_detail_backend || `/norma/${item.id}`
+              });
+            });
+          }
+
+          nextUrl = (data.pagination && data.pagination.links && data.pagination.links.next) 
+            ? data.pagination.links.next 
+            : null;
+        }
+
+        if (fetchedItems.length > 0) {
+          allResolutions = fetchedItems;
+          const now = new Date();
+          const timeStr = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+          lastUpdatedText.textContent = `Sincronizado às ${timeStr}`;
+          renderYearPills();
+          applyFiltersAndRender();
+        }
+      } catch (err) {
+        console.warn('Não foi possível obter dados online da API SAPL. Usando repositório interno.', err);
+        lastUpdatedText.textContent = 'Exibindo dados armazenados';
+      } finally {
+        refreshBtn.classList.remove('spinning');
+      }
+    }
+
+    // Generate year filter pills with counts
+    function renderYearPills() {
+      const yearCounts = {};
+      allResolutions.forEach(r => {
+        if (r.ano) {
+          yearCounts[r.ano] = (yearCounts[r.ano] || 0) + 1;
+        }
+      });
+
+      countAllSpan.textContent = allResolutions.length;
+
+      // Clear existing custom year pills
+      const customPills = yearsBar.querySelectorAll('.year-pill[data-year]:not([data-year="all"])');
+      customPills.forEach(p => p.remove());
+
+      const sortedYears = Object.keys(yearCounts).map(Number).sort((a, b) => b - a);
+
+      sortedYears.forEach(year => {
+        const btn = document.createElement('button');
+        btn.className = `year-pill ${currentYear === String(year) ? 'active' : ''}`;
+        btn.dataset.year = year;
+        btn.innerHTML = `${year} <span class="pill-count">${yearCounts[year]}</span>`;
+        btn.addEventListener('click', () => {
+          setYearFilter(String(year));
+        });
+        yearsBar.appendChild(btn);
+      });
+    }
+
+    function setYearFilter(year) {
+      currentYear = year;
+      document.querySelectorAll('.year-pill').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.year === year);
+      });
+      currentPage = 1;
+      applyFiltersAndRender();
+    }
+
+    // Search keyword highlighting
+    function highlightText(text, query) {
+      if (!query || !text) return text;
+      const cleanQ = normalizeStr(query);
+      if (!cleanQ) return text;
+
+      // Regex matching words
+      const words = cleanQ.split(/\s+/).filter(w => w.length > 1);
+      if (words.length === 0) return text;
+
+      const escaped = words.map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
+      const regex = new RegExp(`(${escaped})`, 'gi');
+
+      return text.replace(regex, '<mark class="highlight">$1</mark>');
+    }
+
+    // Filter, Sort, Paginate
+    function applyFiltersAndRender() {
+      const q = normalizeStr(searchQuery);
+
+      filteredResolutions = allResolutions.filter(res => {
+        // Year filter
+        if (currentYear !== 'all' && String(res.ano) !== currentYear) {
+          return false;
+        }
+
+        // Search filter
+        if (q) {
+          const normEmenta = normalizeStr(res.ementa);
+          const normNum = normalizeStr(res.numero);
+          const normAno = String(res.ano);
+          const numFormat = `${normNum}/${normAno}`;
+
+          const matchesNum = normNum.includes(q) || numFormat.includes(q);
+          const matchesAno = normAno === q;
+          const matchesEmenta = normEmenta.includes(q);
+
+          if (!matchesNum && !matchesAno && !matchesEmenta) {
+            return false;
+          }
+        }
+
+        return true;
+      });
+
+      // Sorting
+      filteredResolutions.sort((a, b) => {
+        if (currentSort === 'date-desc') {
+          return (b.data || '').localeCompare(a.data || '') || (b.ano - a.ano) || (parseInt(b.numero, 10) - parseInt(a.numero, 10));
+        } else if (currentSort === 'date-asc') {
+          return (a.data || '').localeCompare(b.data || '') || (a.ano - b.ano) || (parseInt(a.numero, 10) - parseInt(b.numero, 10));
+        } else if (currentSort === 'num-desc') {
+          return (parseInt(b.numero, 10) - parseInt(a.numero, 10)) || (b.ano - a.ano);
+        } else if (currentSort === 'num-asc') {
+          return (parseInt(a.numero, 10) - parseInt(b.numero, 10)) || (a.ano - b.ano);
+        }
+        return 0;
+      });
+
+      // Update count display
+      const total = filteredResolutions.length;
+      if (total === 0) {
+        resultsCount.textContent = 'Nenhuma resolução encontrada';
+      } else if (total === 1) {
+        resultsCount.textContent = '1 resolução encontrada';
+      } else {
+        resultsCount.textContent = `${total} resoluções encontradas`;
+      }
+
+      renderItems();
+      renderPagination();
+      notifyParentResize();
+    }
+
+    // Render cards and table
+    function renderItems() {
+      const total = filteredResolutions.length;
+
+      if (total === 0) {
+        cardsContainer.style.display = 'none';
+        tableWrapper.style.display = 'none';
+        emptyState.style.display = 'block';
+        return;
+      }
+
+      emptyState.style.display = 'none';
+
+      // Slice for pagination
+      let displayItems = filteredResolutions;
+      if (pageSize !== 'all') {
+        const size = parseInt(pageSize, 10);
+        const start = (currentPage - 1) * size;
+        displayItems = filteredResolutions.slice(start, start + size);
+      }
+
+      if (currentView === 'grid') {
+        cardsContainer.style.display = 'grid';
+        tableWrapper.style.display = 'none';
+        cardsContainer.innerHTML = displayItems.map(item => createCardHTML(item)).join('');
+      } else {
+        cardsContainer.style.display = 'none';
+        tableWrapper.style.display = 'block';
+        tableBody.innerHTML = displayItems.map(item => createTableRowHTML(item)).join('');
+      }
+
+      // Attach copy listeners
+      attachActionListeners();
+    }
+
+    // Create Card HTML
+    function createCardHTML(item) {
+      const fileUrl = toHttps(item.texto_integral);
+      const isDocx = fileUrl.toLowerCase().endsWith('.docx');
+      const isPdf = fileUrl.toLowerCase().endsWith('.pdf');
+      const saplDetailUrl = `${SAPL_BASE_URL}${item.link_detail_backend || '/norma/' + item.id}`;
+      const dateFormatted = formatDateBR(item.data);
+      const highlightedEmenta = highlightText(item.ementa, searchQuery);
+
+      let docButton = '';
+      if (fileUrl) {
+        if (isPdf) {
+          docButton = `
+            <a href="${fileUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-file-pdf" title="Abrir PDF oficial em nova aba">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              <span>Visualizar PDF</span>
+            </a>
+          `;
+        } else {
+          docButton = `
+            <a href="${fileUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-file-doc" title="Baixar documento Word (.DOCX)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>Baixar DOCX</span>
+            </a>
+          `;
+        }
+      }
+
+      return `
+        <article class="res-card" data-id="${item.id}">
+          <div>
+            <div class="card-top">
+              <div class="badge-number">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                <span>Resolução nº ${item.numero}/${item.ano}</span>
+              </div>
+              <div class="badge-date">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>${dateFormatted}</span>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <p class="card-ementa">${highlightedEmenta}</p>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <div style="display: flex; gap: 0.4rem; align-items: center; flex-wrap: wrap;">
+              ${docButton}
+              <a href="${saplDetailUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-sapl" title="Ver detalhes no SAPL">
+                <span>Ver no SAPL</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+            </div>
+            <button class="btn-copy" data-url="${fileUrl || saplDetailUrl}" title="Copiar link da resolução" aria-label="Copiar link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
+          </div>
+        </article>
+      `;
+    }
+
+    // Create Table Row HTML
+    function createTableRowHTML(item) {
+      const fileUrl = toHttps(item.texto_integral);
+      const isDocx = fileUrl.toLowerCase().endsWith('.docx');
+      const isPdf = fileUrl.toLowerCase().endsWith('.pdf');
+      const saplDetailUrl = `${SAPL_BASE_URL}${item.link_detail_backend || '/norma/' + item.id}`;
+      const dateFormatted = formatDateBR(item.data);
+      const highlightedEmenta = highlightText(item.ementa, searchQuery);
+
+      let docBadge = '<span style="color: var(--text-light); font-size: 0.8rem;">(Sem anexo)</span>';
+      if (fileUrl) {
+        if (isPdf) {
+          docBadge = `<a href="${fileUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-file-pdf" style="padding: 0.3rem 0.6rem; font-size: 0.78rem;">PDF</a>`;
+        } else {
+          docBadge = `<a href="${fileUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-file-doc" style="padding: 0.3rem 0.6rem; font-size: 0.78rem;">DOCX</a>`;
+        }
+      }
+
+      return `
+        <tr>
+          <td class="table-num">Nº ${item.numero}/${item.ano}</td>
+          <td class="table-date">${dateFormatted}</td>
+          <td class="table-ementa">${highlightedEmenta}</td>
+          <td class="table-actions">
+            <div style="display: inline-flex; align-items: center; gap: 0.4rem;">
+              ${docBadge}
+              <a href="${saplDetailUrl}" target="_blank" rel="noopener noreferrer" class="btn-action btn-sapl" style="padding: 0.3rem 0.6rem; font-size: 0.78rem;" title="Abrir no SAPL">
+                SAPL ↗
+              </a>
+              <button class="btn-copy" data-url="${fileUrl || saplDetailUrl}" title="Copiar link" style="padding: 4px;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              </button>
+            </div>
+          </td>
+        </tr>
+      `;
+    }
+
+    // Attach click events to copy buttons
+    function attachActionListeners() {
+      document.querySelectorAll('.btn-copy').forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+          e.stopPropagation();
+          const url = btn.dataset.url;
+          if (url) {
+            try {
+              await navigator.clipboard.writeText(url);
+              showToast('Link copiado para a área de transferência!');
+            } catch (err) {
+              // Fallback for older browsers
+              const tempInput = document.createElement('input');
+              tempInput.value = url;
+              document.body.appendChild(tempInput);
+              tempInput.select();
+              document.execCommand('copy');
+              document.body.removeChild(tempInput);
+              showToast('Link copiado!');
+            }
+          }
+        });
+      });
+    }
+
+    // Render pagination controls
+    function renderPagination() {
+      if (pageSize === 'all') {
+        paginationBar.innerHTML = '';
+        return;
+      }
+
+      const totalItems = filteredResolutions.length;
+      const size = parseInt(pageSize, 10);
+      const totalPages = Math.ceil(totalItems / size);
+
+      if (totalPages <= 1) {
+        paginationBar.innerHTML = '';
+        return;
+      }
+
+      let html = '';
+
+      // Prev Button
+      html += `
+        <button class="page-btn" ${currentPage === 1 ? 'disabled' : ''} data-page="${currentPage - 1}" aria-label="Página anterior">
+          ‹
+        </button>
+      `;
+
+      // Page numbers with smart ellipsis
+      for (let i = 1; i <= totalPages; i++) {
+        if (i === 1 || i === totalPages || (i >= currentPage - 2 && i <= currentPage + 2)) {
+          html += `
+            <button class="page-btn ${i === currentPage ? 'active' : ''}" data-page="${i}">
+              ${i}
+            </button>
+          `;
+        } else if (i === currentPage - 3 || i === currentPage + 3) {
+          html += `<span style="padding: 0 4px; color: var(--text-muted);">&hellip;</span>`;
+        }
+      }
+
+      // Next Button
+      html += `
+        <button class="page-btn" ${currentPage === totalPages ? 'disabled' : ''} data-page="${currentPage + 1}" aria-label="Próxima página">
+          ›
+        </button>
+      `;
+
+      paginationBar.innerHTML = html;
+
+      // Attach pagination click handlers
+      paginationBar.querySelectorAll('.page-btn:not(:disabled)').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const target = parseInt(btn.dataset.page, 10);
+          if (target && target !== currentPage) {
+            currentPage = target;
+            renderItems();
+            renderPagination();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            notifyParentResize();
+          }
+        });
+      });
+    }
+
+    // Event Listeners
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      clearSearchBtn.style.display = searchQuery ? 'block' : 'none';
+      currentPage = 1;
+      applyFiltersAndRender();
+    });
+
+    clearSearchBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      searchQuery = '';
+      clearSearchBtn.style.display = 'none';
+      currentPage = 1;
+      applyFiltersAndRender();
+      searchInput.focus();
+    });
+
+    resetFiltersBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      searchQuery = '';
+      clearSearchBtn.style.display = 'none';
+      currentYear = 'all';
+      document.querySelectorAll('.year-pill').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.year === 'all');
+      });
+      currentPage = 1;
+      applyFiltersAndRender();
+    });
+
+    yearsBar.querySelector('.year-pill[data-year="all"]').addEventListener('click', () => {
+      setYearFilter('all');
+    });
+
+    sortSelect.addEventListener('change', (e) => {
+      currentSort = e.target.value;
+      currentPage = 1;
+      applyFiltersAndRender();
+    });
+
+    pageSizeSelect.addEventListener('change', (e) => {
+      pageSize = e.target.value;
+      currentPage = 1;
+      applyFiltersAndRender();
+    });
+
+    viewGridBtn.addEventListener('click', () => {
+      currentView = 'grid';
+      viewGridBtn.classList.add('active');
+      viewTableBtn.classList.remove('active');
+      renderItems();
+      notifyParentResize();
+    });
+
+    viewTableBtn.addEventListener('click', () => {
+      currentView = 'table';
+      viewTableBtn.classList.add('active');
+      viewGridBtn.classList.remove('active');
+      renderItems();
+      notifyParentResize();
+    });
+
+    refreshBtn.addEventListener('click', () => {
+      fetchFromAPI();
+    });
+
+    // Modal Handlers
+    openEmbedHelpBtn.addEventListener('click', () => {
+      embedModal.classList.add('open');
+    });
+
+    closeModalBtn.addEventListener('click', () => {
+      embedModal.classList.remove('open');
+    });
+
+    embedModal.addEventListener('click', (e) => {
+      if (e.target === embedModal) {
+        embedModal.classList.remove('open');
+      }
+    });
+
+    copyIframeBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(iframeCodeBox.textContent);
+        showToast('Código do iframe copiado!');
+        setTimeout(() => {
+          embedModal.classList.remove('open');
+        }, 900);
+      } catch (err) {
+        showToast('Selecione e copie o texto manualmente.');
+      }
+    });
+
+    // Listen to parent postMessage resize request
+    window.addEventListener('message', (event) => {
+      if (event.data === 'sapl-request-resize') {
+        notifyParentResize();
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      notifyParentResize();
+    });
+
+    // Initialization
+    document.addEventListener('DOMContentLoaded', () => {
+      checkEmbedMode();
+      renderYearPills();
+      applyFiltersAndRender();
+      // Silently fetch fresh updates from the API in background
+      fetchFromAPI();
+    });
+  </script>
+</body>
+</html>
