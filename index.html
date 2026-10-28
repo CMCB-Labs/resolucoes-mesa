@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resoluções de Mesa - Câmara Municipal de Coronel Barros / RS</title>
-  <meta name="description" content="Consulta pública oficial e transparência das Resoluções da Mesa Diretora da Câmara Municipal de Coronel Barros - RS. Dados sincronizados via SAPL.">
+  <meta name="description" content="Consulta pública oficial e transparência de Resoluções de Mesa da Câmara Municipal de Coronel Barros - RS. Dados sincronizados via SAPL.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
   
   <style>
@@ -38,6 +38,26 @@
       padding: 0;
     }
 
+    /* Modern subtle scrollbar */
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: #a4c49b transparent;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #a4c49b;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: #5c854b;
+    }
+
     body {
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background-color: var(--bg);
@@ -54,14 +74,24 @@
     /* Embed Mode Overrides */
     body.is-embedded {
       background-color: transparent;
+      min-height: auto !important;
+      height: auto !important;
     }
     body.is-embedded .main-header {
-      padding: 1.25rem 1rem;
+      padding: 1rem 0.85rem;
       border-radius: 0;
     }
     body.is-embedded .app-container {
       max-width: 100%;
-      padding: 0.75rem 0.5rem 1rem;
+      padding: 0.4rem 0.2rem 0.75rem;
+    }
+    body.is-embedded .filter-card {
+      padding: 0.85rem;
+      margin-bottom: 0.85rem;
+      border-radius: var(--radius-md);
+    }
+    body.is-embedded .res-card {
+      padding: 1rem;
     }
     body.is-embedded .main-footer {
       display: none !important;
@@ -148,9 +178,9 @@
       display: inline-flex;
       align-items: center;
       gap: 0.45rem;
-      background: rgba(16, 185, 129, 0.18);
-      border: 1px solid rgba(16, 185, 129, 0.35);
-      color: #a7f3d0;
+      background: rgba(62, 187, 81, 0.2);
+      border: 1px solid rgba(62, 187, 81, 0.35);
+      color: #eafbe8;
       font-size: 0.78rem;
       font-weight: 600;
       padding: 0.35rem 0.75rem;
@@ -162,14 +192,14 @@
       height: 8px;
       background-color: var(--success);
       border-radius: 50%;
-      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      box-shadow: 0 0 0 0 rgba(62, 187, 81, 0.7);
       animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-      70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+      0% { box-shadow: 0 0 0 0 rgba(62, 187, 81, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(62, 187, 81, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(62, 187, 81, 0); }
     }
 
     .btn-portal {
@@ -299,9 +329,9 @@
     }
 
     .year-pill {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
+      background: #f4f7f2;
+      border: 1px solid #d4e1d1;
+      color: #4a6143;
       font-size: 0.84rem;
       font-weight: 600;
       padding: 0.4rem 0.85rem;
@@ -379,7 +409,7 @@
       outline: none;
       cursor: pointer;
       appearance: none;
-      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2364748b%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E");
+      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23576b51%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E");
       background-repeat: no-repeat;
       background-position: right 0.6rem center;
       transition: var(--transition);
@@ -415,7 +445,7 @@
 
     .view-btn.active {
       background: #ffffff;
-      color: var(--primary);
+      color: var(--primary-dark);
       box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
 
@@ -475,8 +505,8 @@
     /* Card View Layout */
     .resolutions-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.15rem;
     }
 
     @media (max-width: 640px) {
@@ -489,7 +519,7 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      padding: 1.25rem;
+      padding: 1.15rem;
       box-shadow: var(--shadow-sm);
       display: flex;
       flex-direction: column;
@@ -659,7 +689,7 @@
 
     .table-num {
       font-weight: 700;
-      color: var(--primary);
+      color: #275217;
       white-space: nowrap;
     }
 
@@ -929,7 +959,7 @@
         <div>
           <div class="badge-entity">Poder Legislativo Municipal</div>
           <h1>Câmara Municipal de Coronel Barros</h1>
-          <div style="font-size: 0.95rem; color: #cbd5e1; margin-top: 0.2rem; font-weight: 500;">
+          <div style="font-size: 0.95rem; color: #eafbe8; margin-top: 0.2rem; font-weight: 500;">
             Resoluções da Mesa Diretora
           </div>
         </div>
@@ -962,7 +992,7 @@
             type="text" 
             id="searchInput" 
             class="search-input" 
-            placeholder="Buscar por termo na ementa, número (ex: 10) ou ano (ex: 2026)..."
+            placeholder="Buscar por termo na ementa, número (ex: 1) ou ano (ex: 2026)..."
             autocomplete="off"
             spellcheck="false"
           >
@@ -995,9 +1025,9 @@
           <div class="control-group">
             <label for="pageSizeSelect" class="control-label">Exibir:</label>
             <select id="pageSizeSelect" class="select-custom">
-              <option value="12">12 por página</option>
+              <option value="6">6 por página</option>
+              <option value="12" selected>12 por página</option>
               <option value="24">24 por página</option>
-              <option value="48">48 por página</option>
               <option value="all">Todas</option>
             </select>
           </div>
@@ -1021,7 +1051,7 @@
     <!-- Status & Results Count Bar -->
     <div class="status-bar">
       <div>
-        <span class="results-count" id="resultsCount">Carregando resoluções...</span>
+        <span class="results-count" id="resultsCount">Carregando resoluções de mesa...</span>
       </div>
       <div class="sync-meta">
         <span id="lastUpdatedText">Atualizado agora</span>
@@ -1042,7 +1072,7 @@
         <table class="resolutions-table">
           <thead>
             <tr>
-              <th>Resolução</th>
+              <th>Resolução de Mesa</th>
               <th>Data</th>
               <th>Ementa / Assunto</th>
               <th style="text-align: right;">Documento & SAPL</th>
@@ -1055,8 +1085,8 @@
       <!-- Empty State -->
       <div id="emptyState" class="empty-state" style="display: none;">
         <div class="empty-icon">📂</div>
-        <h3>Nenhuma resolução encontrada</h3>
-        <p>Não encontramos resoluções correspondentes aos critérios ou ano selecionado.</p>
+        <h3>Nenhuma publicação encontrada</h3>
+        <p>Não foram encontrados registros para os critérios ou ano selecionado.</p>
         <button id="resetFiltersBtn" class="year-pill active" style="padding: 0.5rem 1.25rem;">
           Limpar Filtros e Busca
         </button>
@@ -1111,7 +1141,8 @@
         </p>
         <ul style="font-size: 0.84rem; color: var(--text-muted); margin-left: 1.25rem; line-height: 1.6;">
           <li><code>?embed=1</code>: Otimiza as margens e fundo para exibição em iframe.</li>
-          <li><code>?hide_header=1</code>: Oculta o cabeçalho superior (ideal caso o site da Câmara já tenha título próprio).</li>
+          <li><code>?hide_header=1</code>: Oculta o cabeçalho superior.</li>
+          <li><code>?page_size=6</code>: Define 6 itens por página (ideal para telas menores).</li>
         </ul>
         <button id="copyIframeBtn" class="year-pill active" style="margin-top: 1rem; width: 100%; justify-content: center;">
           Copiar Código do Iframe
@@ -1122,7 +1153,7 @@
 
   <!-- Toast Notification -->
   <div id="toast" class="toast" role="status" aria-live="polite">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3ebb51" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
     <span id="toastMsg">Link copiado com sucesso!</span>
   </div>
 
@@ -1131,8 +1162,10 @@
     // Embedded snapshot data for immediate zero-latency rendering & offline resilience
     const INITIAL_DATA = [{"id": 24, "numero": "10", "ano": 2026, "data": "2026-04-16", "data_publicacao": "2026-04-16", "ementa": "Dispõe sobre ponto facultativo no âmbito da Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2026/24/resolucao_de_mesa_no_10.2026_-_ponto_facultativo_20_de_abril.docx", "link_detail_backend": "/norma/24"}, {"id": 23, "numero": "9", "ano": 2026, "data": "2026-03-31", "data_publicacao": "2026-03-31", "ementa": "Dispõe sobre a antecipação da reunião da Comissão de Constituição, Justiça, Cidadania e Desenvolvimento Social.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2026/23/resolucao_de_mesa_no_09.2026.pdf", "link_detail_backend": "/norma/23"}, {"id": 22, "numero": "8", "ano": 2026, "data": "2026-03-31", "data_publicacao": "2026-03-31", "ementa": "Estabelece turno único na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2026/22/resolucao_de_mesa_no_08.2026.pdf", "link_detail_backend": "/norma/22"}, {"id": 21, "numero": "7", "ano": 2026, "data": "2026-03-30", "data_publicacao": "2026-03-31", "ementa": "Abre crédito adicional suplementar na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2026/21/resolucao_de_mesa_no_07.2026.pdf", "link_detail_backend": "/norma/21"}, {"id": 20, "numero": "6", "ano": 2026, "data": "2026-03-12", "data_publicacao": "2026-03-13", "ementa": "Dispõe sobre o reconhecimento de despesa realizada no interesse público e autoriza indenização.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2026/20/resolucao_de_mesa_no_06.2026.pdf", "link_detail_backend": "/norma/20"}, {"id": 19, "numero": "5", "ano": 2026, "data": "2026-02-11", "data_publicacao": "2026-02-11", "ementa": "Dispõe sobre ponto facultativo no âmbito da Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2026/19/resolucao_de_mesa_no_05.2026.pdf", "link_detail_backend": "/norma/19"}, {"id": 18, "numero": "4", "ano": 2026, "data": "2026-02-11", "data_publicacao": "2026-02-11", "ementa": "Dispõe sobre ponto facultativo no âmbito da Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2026/18/resolucao_de_mesa_no_04.2026.pdf", "link_detail_backend": "/norma/18"}, {"id": 17, "numero": "3", "ano": 2026, "data": "2026-02-11", "data_publicacao": "2026-02-11", "ementa": "Dispõe sobre o encerramento antecipado do turno único no âmbito da Câmara Municipal de Coronel Barros e dá outras providências.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2026/17/resolucao_de_mesa_no_03.2026.pdf", "link_detail_backend": "/norma/17"}, {"id": 16, "numero": "2", "ano": 2026, "data": "2026-01-15", "data_publicacao": "2026-01-15", "ementa": "Fixa o valor das diárias de servidores públicos e agentes políticos do Legislativo Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2026/16/resolucao_de_mesa_no_02.2026.pdf", "link_detail_backend": "/norma/16"}, {"id": 15, "numero": "1", "ano": 2026, "data": "2026-01-05", "data_publicacao": "2026-01-05", "ementa": "Estabelece turno único na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2026/15/resolucao_de_mesa_no_01.2026.pdf", "link_detail_backend": "/norma/15"}, {"id": 73, "numero": "21", "ano": 2025, "data": "2025-12-29", "data_publicacao": "", "ementa": "Abre crédito adicional suplementar na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/73/resolucao_de_mesa_no_21.2025.pdf", "link_detail_backend": "/norma/73"}, {"id": 72, "numero": "20", "ano": 2025, "data": "2025-12-24", "data_publicacao": "", "ementa": "Estabelece ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/72/resolucao_de_mesa_no_20.2025.pdf", "link_detail_backend": "/norma/72"}, {"id": 71, "numero": "19", "ano": 2025, "data": "2025-11-19", "data_publicacao": "", "ementa": "Estabelece ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/71/resolucao_de_mesa_no_19.2025.pdf", "link_detail_backend": "/norma/71"}, {"id": 70, "numero": "18", "ano": 2025, "data": "2025-11-10", "data_publicacao": "", "ementa": "Estabelece turno único na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/70/resolucao_de_mesa_no_18.2025-_estabelece_turno_unico.pdf", "link_detail_backend": "/norma/70"}, {"id": 69, "numero": "17", "ano": 2025, "data": "2025-10-22", "data_publicacao": "", "ementa": "Abre crédito adicional suplementar na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/69/resolucao_de_mesa_no_17.2025-_credito_suplementar.pdf", "link_detail_backend": "/norma/69"}, {"id": 68, "numero": "16", "ano": 2025, "data": "2025-10-17", "data_publicacao": "", "ementa": "Estabelece ponto facultativo e transfere data de Sessão Ordinária na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/68/resolucao_de_mesa_no_16.2025-_ponto_facultativo.pdf", "link_detail_backend": "/norma/68"}, {"id": 67, "numero": "15", "ano": 2025, "data": "2025-10-16", "data_publicacao": "", "ementa": "Abre crédito adicional suplementar na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/67/resolucao_de_mesa_no_15.2025-_credito_suplementar.pdf", "link_detail_backend": "/norma/67"}, {"id": 66, "numero": "14", "ano": 2025, "data": "2025-10-01", "data_publicacao": "", "ementa": "Estabelece expediente interno na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/66/resolucao_de_mesa_no_14.2025_-_expediente_interno.pdf", "link_detail_backend": "/norma/66"}, {"id": 65, "numero": "13", "ano": 2025, "data": "2025-06-30", "data_publicacao": "", "ementa": "Fixa o valor das Diárias de servidores públicos e agentes políticos do Legislativo Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/65/resolucao_de_mesa_no_13.2025.pdf", "link_detail_backend": "/norma/65"}, {"id": 64, "numero": "12", "ano": 2025, "data": "2025-06-18", "data_publicacao": "", "ementa": "Estabelece ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/64/resolucao_de_mesa_no_12.2025_-_ponto_facultativo_20.06.pdf", "link_detail_backend": "/norma/64"}, {"id": 63, "numero": "11", "ano": 2025, "data": "2025-04-30", "data_publicacao": "", "ementa": "Estabelece ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/63/resolucao_de_mesa_no_11.2025_-_ponto_facultativo_02.05.pdf", "link_detail_backend": "/norma/63"}, {"id": 62, "numero": "10", "ano": 2025, "data": "2025-04-16", "data_publicacao": "", "ementa": "Estabelece ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/62/resolucao_de_mesa_no_10.2025_-_ponto_facultativo_17.04.pdf", "link_detail_backend": "/norma/62"}, {"id": 61, "numero": "9", "ano": 2025, "data": "2025-03-19", "data_publicacao": "", "ementa": "Estabelece ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/61/resolucao_de_mesa_no_09.2025_-_ponto_facultativo_aniversario_municipio.docx", "link_detail_backend": "/norma/61"}, {"id": 60, "numero": "8", "ano": 2025, "data": "2025-02-25", "data_publicacao": "", "ementa": "Estabelece turno único na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/60/resolucao_de_mesa_no_08.2025_-_turno_unico.pdf", "link_detail_backend": "/norma/60"}, {"id": 59, "numero": "7", "ano": 2025, "data": "2025-02-25", "data_publicacao": "", "ementa": "Dispõe sobre a transferência da data da Sessão Ordinária da Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/59/resolucao_de_mesa_no_07.2025_-_transfere_o_dia_da_sessao.pdf", "link_detail_backend": "/norma/59"}, {"id": 58, "numero": "6", "ano": 2025, "data": "2025-02-24", "data_publicacao": "2025-02-24", "ementa": "Estabelece ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/58/resolucao_de_mesa_no_06.2025_-_ponto_facultativo_carnaval.pdf", "link_detail_backend": "/norma/58"}, {"id": 57, "numero": "5", "ano": 2025, "data": "2025-02-12", "data_publicacao": "2025-02-12", "ementa": "Altera resolução de mesa nº 01, de 02 de janeiro de 2025.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/57/resolucao_de_mesa_no_05.2025_-_retira_turno.docx", "link_detail_backend": "/norma/57"}, {"id": 56, "numero": "4", "ano": 2025, "data": "2025-01-30", "data_publicacao": "2025-01-30", "ementa": "Abre crédito adicional suplementar na Câmara Municipal de Coronel Barros.", "texto_integral": "", "link_detail_backend": "/norma/56"}, {"id": 55, "numero": "3", "ano": 2025, "data": "2025-01-20", "data_publicacao": "2025-01-20", "ementa": "Fixa o valor das diárias de servidores públicos e agentes políticos do Legislativo Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/55/resolucao_de_mesa_no_03.2025_-_fixa_valor_das_diarias.pdf", "link_detail_backend": "/norma/55"}, {"id": 54, "numero": "2", "ano": 2025, "data": "2025-01-20", "data_publicacao": "2025-01-20", "ementa": "RESOLUÇÃO DE MESA INEXISTENTE.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/54/resolucao_de_mesa_no_02.2025_-_nao_foi_feita.docx", "link_detail_backend": "/norma/54"}, {"id": 53, "numero": "1", "ano": 2025, "data": "2025-01-02", "data_publicacao": "2025-01-02", "ementa": "Estabelece turno único na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2025/53/resolucao_de_mesa_no_01.2025_-_turno_unico.docx", "link_detail_backend": "/norma/53"}, {"id": 94, "numero": "21", "ano": 2024, "data": "2024-12-30", "data_publicacao": "", "ementa": "Dispõe sobre turno único.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/94/resolucao_de_mesa_no_21-_troca_de_turno.docx", "link_detail_backend": "/norma/94"}, {"id": 93, "numero": "20", "ano": 2024, "data": "2024-12-23", "data_publicacao": "", "ementa": "Estabelece ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/93/resolucao_de_mesa_no_20.2024.pdf", "link_detail_backend": "/norma/93"}, {"id": 92, "numero": "19", "ano": 2024, "data": "2024-12-23", "data_publicacao": "", "ementa": "Dispõe sobre turno único.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/92/resolucao_de_mesa_no_19.2024.pdf", "link_detail_backend": "/norma/92"}, {"id": 91, "numero": "18", "ano": 2024, "data": "2024-12-23", "data_publicacao": "", "ementa": "Resolve que não haverá reunião de Comissão devido ausência de matéria a ser apreciada.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/91/resolucao_de_mesa_no_18.2024.pdf", "link_detail_backend": "/norma/91"}, {"id": 90, "numero": "17", "ano": 2024, "data": "2024-12-13", "data_publicacao": "", "ementa": "Resolve que não haverá reunião de Comissão devido ausência de matéria a ser apreciada.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/90/resolucao_de_mesa_no_17.2024.pdf", "link_detail_backend": "/norma/90"}, {"id": 89, "numero": "16", "ano": 2024, "data": "2024-11-29", "data_publicacao": "", "ementa": "Resolve que não haverá reunião de Comissão devido ausência de matéria a ser apreciada.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/89/resolucao_de_mesa_no_16.2024.pdf", "link_detail_backend": "/norma/89"}, {"id": 88, "numero": "15", "ano": 2024, "data": "2024-11-19", "data_publicacao": "", "ementa": "Abre crédito adicional suplementar na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/88/resolucao_de_mesa_no_15.2024.pdf", "link_detail_backend": "/norma/88"}, {"id": 87, "numero": "14", "ano": 2024, "data": "2024-11-14", "data_publicacao": "", "ementa": "Estabelece turno único na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/87/resolucao_de_mesa_no_14.2024.pdf", "link_detail_backend": "/norma/87"}, {"id": 86, "numero": "13", "ano": 2024, "data": "2024-11-07", "data_publicacao": "", "ementa": "Altera resolução de mesa nº 12, de 29 de outubro de 2024.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/86/resolucao_de_mesa_no_13.2024.pdf", "link_detail_backend": "/norma/86"}, {"id": 85, "numero": "12", "ano": 2024, "data": "2024-10-30", "data_publicacao": "", "ementa": "Estabelece turno único na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/85/resolucao_de_mesa_no_12.2024.pdf", "link_detail_backend": "/norma/85"}, {"id": 84, "numero": "11", "ano": 2024, "data": "2024-10-24", "data_publicacao": "", "ementa": "Estabelece turno único na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/84/resolucao_de_mesa_no_11.2024_-_turno_unico_dia_do_servidor_publico.pdf", "link_detail_backend": "/norma/84"}, {"id": 82, "numero": "9", "ano": 2024, "data": "2024-10-23", "data_publicacao": "", "ementa": "Estabelece ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/82/resolucao_de_mesa_no_09.2024.pdf", "link_detail_backend": "/norma/82"}, {"id": 83, "numero": "10", "ano": 2024, "data": "2024-10-23", "data_publicacao": "", "ementa": "Transfere a Sessão Ordinária do dia 28 de outubro de 2024 para o dia 29 de outubro de 2024.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/83/resolucao_de_mesa_no_10.2024.pdf", "link_detail_backend": "/norma/83"}, {"id": 81, "numero": "8", "ano": 2024, "data": "2024-08-09", "data_publicacao": "", "ementa": "Resolve que não haverá reunião de Comissão devido ausência de matéria a ser apreciada.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/81/resolucao_de_mesa_no_08.2024.pdf", "link_detail_backend": "/norma/81"}, {"id": 80, "numero": "7", "ano": 2024, "data": "2024-07-22", "data_publicacao": "", "ementa": "Resolve que não haverá reunião de Comissão devido ausência de matéria a ser apreciada.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/80/resolucao_de_mesa_no_07.2024.pdf", "link_detail_backend": "/norma/80"}, {"id": 79, "numero": "6", "ano": 2024, "data": "2024-07-02", "data_publicacao": "", "ementa": "Abre crédito adicional suplementar na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/79/resolucao_de_mesa_no_06.2024.pdf", "link_detail_backend": "/norma/79"}, {"id": 78, "numero": "5", "ano": 2024, "data": "2024-05-29", "data_publicacao": "", "ementa": "Estabelece ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/78/resolucao_de_mesa_no_05.2024_-_ponto_facultativo_corpus_christi.docx", "link_detail_backend": "/norma/78"}, {"id": 77, "numero": "4", "ano": 2024, "data": "2024-03-27", "data_publicacao": "", "ementa": "Estabelece turno único na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/77/resolucao_de_mesa_no_04.2024_-_turno_unico.docx", "link_detail_backend": "/norma/77"}, {"id": 76, "numero": "3", "ano": 2024, "data": "2024-03-06", "data_publicacao": "", "ementa": "Fixa o valor das diárias de servidores públicos e agentes políticos do Legislativo Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/76/resolucao_de_mesa_no_03.2024_-_diarias.docx", "link_detail_backend": "/norma/76"}, {"id": 75, "numero": "2", "ano": 2024, "data": "2024-02-08", "data_publicacao": "", "ementa": "Estabelece ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/75/resolucao_de_mesa_no_02.2024_-_ponto_facultativo_carnaval.docx", "link_detail_backend": "/norma/75"}, {"id": 95, "numero": "1-A", "ano": 2024, "data": "2024-01-31", "data_publicacao": "", "ementa": "Estabelece turno único na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/95/resolucao_no01a.2024.pdf", "link_detail_backend": "/norma/95"}, {"id": 74, "numero": "1", "ano": 2024, "data": "2024-01-01", "data_publicacao": "", "ementa": "Estabelece ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2024/74/resolucao_de_mesa_no_01.2024.pdf", "link_detail_backend": "/norma/74"}, {"id": 98, "numero": "6", "ano": 2023, "data": "2023-05-08", "data_publicacao": "", "ementa": "Abre crédito adicional suplementar na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2023/98/resolucao_de_mesa_no_06_-_credito_adicional_suplementar.docx", "link_detail_backend": "/norma/98"}, {"id": 97, "numero": "4", "ano": 2023, "data": "2023-04-05", "data_publicacao": "", "ementa": "Adota turno único na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2023/97/resolucao_de_mesa_no_04.pdf", "link_detail_backend": "/norma/97"}, {"id": 96, "numero": "3", "ano": 2023, "data": "2023-02-17", "data_publicacao": "", "ementa": "Adota ponto facultativo na Câmara Municipal de Coronel Barros.", "texto_integral": "https://sapl.coronelbarros.rs.leg.br/media/sapl/public/normajuridica/2023/96/resolucao_de_mesa_no_03_-_ponto_facultativo_carnaval.docx", "link_detail_backend": "/norma/96"}];
 
+    // Tipo 8 = Resoluções de Mesa
     const API_ENDPOINT = 'https://sapl.coronelbarros.rs.leg.br/api/norma/normajuridica/?tipo=8&page_size=100&format=json';
     const SAPL_BASE_URL = 'https://sapl.coronelbarros.rs.leg.br';
+    const ACT_LABEL = 'Resolução de Mesa';
 
     // State
     let allResolutions = [...INITIAL_DATA];
@@ -1176,6 +1209,7 @@
       const isEmbedParam = urlParams.get('embed') === '1' || urlParams.get('embed') === 'true';
       const isHideHeader = urlParams.get('hide_header') === '1' || urlParams.get('hide_header') === 'true';
       const isHideFooter = urlParams.get('hide_footer') === '1' || urlParams.get('hide_footer') === 'true';
+      const paramPageSize = urlParams.get('page_size');
       const isInIframe = window.self !== window.top;
       
       if (isEmbedParam || isInIframe) {
@@ -1190,11 +1224,16 @@
         document.body.classList.add('hide-footer');
       }
 
+      if (paramPageSize) {
+        pageSize = paramPageSize;
+        if (pageSizeSelect) pageSizeSelect.value = paramPageSize;
+      }
+
       // Update iframe sample URL with current location or fallback
       const currentUrl = (window.location.protocol.startsWith('http') && !window.location.hostname.includes('localhost') && !window.location.hostname.includes('127.0.0.1'))
         ? window.location.href.split('?')[0]
         : 'https://cmcb-labs.github.io/resolucoes-mesa/';
-      iframeCodeBox.textContent = `<iframe \n  src="${currentUrl}?embed=1" \n  width="100%" \n  height="750" \n  style="border: none; min-height: 600px; width: 100%;" \n  title="Resoluções de Mesa - Câmara de Coronel Barros">\n</iframe>`;
+      iframeCodeBox.textContent = `<iframe \n  src="${currentUrl}?embed=1" \n  width="100%" \n  height="750" \n  style="border: none; min-height: 600px; width: 100%;" \n  title="${ACT_LABEL} - Câmara de Coronel Barros">\n</iframe>`;
     }
 
     // String normalization for accent-insensitive search
@@ -1234,9 +1273,24 @@
     // Send height to parent if in iframe
     function notifyParentResize() {
       if (window.self !== window.top) {
-        const height = document.documentElement.scrollHeight;
+        const height = Math.max(
+          document.body.scrollHeight,
+          document.documentElement.scrollHeight,
+          document.body.offsetHeight,
+          document.documentElement.offsetHeight
+        );
         window.parent.postMessage({ type: 'sapl-resize', height: height }, '*');
       }
+    }
+
+    // Observe size changes automatically
+    if (window.ResizeObserver) {
+      try {
+        const ro = new ResizeObserver(() => {
+          notifyParentResize();
+        });
+        ro.observe(document.body);
+      } catch (e) {}
     }
 
     // Fetch dynamic updates from SAPL API
@@ -1272,14 +1326,12 @@
             : null;
         }
 
-        if (fetchedItems.length > 0) {
-          allResolutions = fetchedItems;
-          const now = new Date();
-          const timeStr = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
-          lastUpdatedText.textContent = `Sincronizado às ${timeStr}`;
-          renderYearPills();
-          applyFiltersAndRender();
-        }
+        allResolutions = fetchedItems;
+        const now = new Date();
+        const timeStr = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+        lastUpdatedText.textContent = `Sincronizado às ${timeStr}`;
+        renderYearPills();
+        applyFiltersAndRender();
       } catch (err) {
         console.warn('Não foi possível obter dados online da API SAPL. Usando repositório interno.', err);
         lastUpdatedText.textContent = 'Exibindo dados armazenados';
@@ -1332,7 +1384,6 @@
       const cleanQ = normalizeStr(query);
       if (!cleanQ) return text;
 
-      // Regex matching words
       const words = cleanQ.split(/\s+/).filter(w => w.length > 1);
       if (words.length === 0) return text;
 
@@ -1388,11 +1439,11 @@
       // Update count display
       const total = filteredResolutions.length;
       if (total === 0) {
-        resultsCount.textContent = 'Nenhuma resolução encontrada';
+        resultsCount.textContent = `Nenhum registro encontrado`;
       } else if (total === 1) {
-        resultsCount.textContent = '1 resolução encontrada';
+        resultsCount.textContent = `1 registro encontrado`;
       } else {
-        resultsCount.textContent = `${total} resoluções encontradas`;
+        resultsCount.textContent = `${total} registros encontrados`;
       }
 
       renderItems();
@@ -1469,7 +1520,7 @@
             <div class="card-top">
               <div class="badge-number">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
-                <span>Resolução nº ${item.numero}/${item.ano}</span>
+                <span>${ACT_LABEL} nº ${item.numero}/${item.ano}</span>
               </div>
               <div class="badge-date">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
@@ -1490,7 +1541,7 @@
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
               </a>
             </div>
-            <button class="btn-copy" data-url="${fileUrl || saplDetailUrl}" title="Copiar link da resolução" aria-label="Copiar link">
+            <button class="btn-copy" data-url="${fileUrl || saplDetailUrl}" title="Copiar link" aria-label="Copiar link">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
             </button>
           </div>
@@ -1547,7 +1598,6 @@
               await navigator.clipboard.writeText(url);
               showToast('Link copiado para a área de transferência!');
             } catch (err) {
-              // Fallback for older browsers
               const tempInput = document.createElement('input');
               tempInput.value = url;
               document.body.appendChild(tempInput);
@@ -1579,14 +1629,12 @@
 
       let html = '';
 
-      // Prev Button
       html += `
         <button class="page-btn" ${currentPage === 1 ? 'disabled' : ''} data-page="${currentPage - 1}" aria-label="Página anterior">
           ‹
         </button>
       `;
 
-      // Page numbers with smart ellipsis
       for (let i = 1; i <= totalPages; i++) {
         if (i === 1 || i === totalPages || (i >= currentPage - 2 && i <= currentPage + 2)) {
           html += `
@@ -1599,7 +1647,6 @@
         }
       }
 
-      // Next Button
       html += `
         <button class="page-btn" ${currentPage === totalPages ? 'disabled' : ''} data-page="${currentPage + 1}" aria-label="Próxima página">
           ›
@@ -1608,7 +1655,6 @@
 
       paginationBar.innerHTML = html;
 
-      // Attach pagination click handlers
       paginationBar.querySelectorAll('.page-btn:not(:disabled)').forEach(btn => {
         btn.addEventListener('click', () => {
           const target = parseInt(btn.dataset.page, 10);
